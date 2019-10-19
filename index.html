@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel=stylesheet type="text/css" href=crystal.css>
-
+    <link rel=stylesheet type="text/css" href=style.css>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
 
 
 </head>
@@ -17,13 +19,20 @@
 
     <div id='container'>
         <div id='parentTitleBox'>
-            <div class='titleBox'> Crystal Collector</div>
+            <div class='titleBox'></div>
         </div>
 
-        <div id="instructionBox">
-            <h1>Crystal Collector!</h1>
+        <div class="instructions">
+            <h2>Crystal Collector!</h2>
+            <p>You will be given a random number at the beginning of the game.</p>
+            <p>There are four crystals below. By clicking on a crystal, you will add a specific number of points to your
+                total score.</p>
+            <p>You win by matching your total score to the random number; you lose the game if your score exceeds the
+                random number.</p>
+            <p>Each crystal's value remains hidden until you click it.</p>
+            <p>Each crystal's value changes each time the game starts.</p>
         </div>
-            
+
         <div id="parentRanW1Box">
             <div class="ranNumBox"></div>
 
@@ -50,52 +59,56 @@
         </div>
 
         <div id="parentScore">
-            <div class="score">
+            <div class="totalScore">
                 <p>Your total score is:</p>
             </div>
             <div class="scoreDisplay"></div>
-                <p class=scoreDisplayChild></p>
-            </div>
-
+            <p class=scoreDisplayChild></p>
         </div>
 
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">>
-                
-            var crys1 = Math.floor(Math.random() * (12 - 1) + 1);
-            var crys2 = Math.floor(Math.random() * (12 - 1) + 1);
-            var crys3 = Math.floor(Math.random() * (12 - 1) + 1);
-            var crys4 = Math.floor(Math.random() * (12 - 1) + 1);
+    </div>
 
-            var win = 0;
+    <script>
+        $(document).ready(() =>  {
+            
+            var crys1 = Math.floor(Math.random() * 12) + 1;
+            var crys2 = Math.floor(Math.random() * 12) + 1;
+            var crys3 = Math.floor(Math.random() * 12) + 1;
+            var crys4 = Math.floor(Math.random() * 12) + 1;
             var loss = 0;
+            var win = 0;
             var finalScore;
+            var totalScore;
+            $(".totalScore").text(totalScore);
+
+            var randNumber = Math.floor(Math.random() * ((120-19) + 1) +19);
+            $("#randNum").html(randNumber);
 
             function reset() {
 
-                randNum =  Math.floor(Math.random() * (120 - 19) + 19);
-                console.log('randomNumber = ' + randNum);
-                crys1 = Math.floor(Math.random() * (12 - 1) + 1);
-                crys2 = Math.floor(Math.random() * (12 - 1) + 1);
-                crys3 = Math.floor(Math.random() * (12 - 1) + 1);
-                crys4 = Math.floor(Math.random() * (12 - 1) + 1);
+                randNum = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
+                console.log('randomNumber ' + randNum);
+                crys1 = Math.floor(Math.random() * 12) + 1;
+                crys2 = Math.floor(Math.random() * 12) + 1;
+                crys3 = Math.floor(Math.random() * 12) + 1;
+                crys4 = Math.floor(Math.random() * 12) + 1;
                 finalScore = 0;
-                
+
                 $('.ranNumBox').html(randNum);
                 $('.scoreDisplayChild').html(finalScore);
                 start();
 
-                
+
             }
 
             function start() {
-                randNum = randNum =  Math.floor(Math.random() * (120 - 19) + 19);
-                crys1 = Math.floor(Math.random() * (12 - 1) + 1);
-                crys2 = Math.floor(Math.random() * (12 - 1) + 1);
-                crys3 = Math.floor(Math.random() * (12 - 1) + 1);
-                crys4 = Math.floor(Math.random() * (12 - 1) + 1);
+                randNum = Math.floor(Math.random() * ((120 - 19) + 1) + 19);
+                crys1 = Math.floor(Math.random() * 12) + 1;
+                crys2 = Math.floor(Math.random() * 12) + 1;
+                crys3 = Math.floor(Math.random() * 12) + 1;
+                crys4 = Math.floor(Math.random() * 12) + 1;
                 finalScore = 0;
 
                 $('.ranNumBox').html(randNum);
@@ -105,39 +118,40 @@
             $('.crystal1').attr("value", crys1);
             var test = $("crystal1").attr("value");
 
-            $(.crystal2).attr("value", crys2);
+            $('.crystal2').attr("value", crys2);
             var test = $("crystal2").attr("value");
 
-            $(.crystal3).attr("value", crys3);
+            $('.crystal3').attr("value", crys3);
             var test = $("crystal3").attr("value");
 
-            $(.crystal4).attr("value", crys4);
+            $('.crystal4').attr("value", crys4);
             var test = $("crystal4").attr("value");
 
-            $(".box").on("click", function() {
+            $(".box").on("click", function () {
                 var test1 = $(this).attr("value");
                 finalScore = parseInt(finalScore) + parseInt(test1);
-                $(".scoreDisplayChild").html(FinalScore);
+                $(".scoreDisplayChild").html(finalScore);
 
-                if(randNum === finalScore) {
+                if (randNum === finalScore) {
                     alert("Win!");
                     win++;
                     $(".win").html(win);
                     $(".scoreDisplayChild").html(0);
                     reset();
-                }else if (finalScore > randNum) {
+                } else if (finalScore > randNum) {
                     alert("Lose!");
                     loss++;
                     $(".loss").html(loss);
                     $(".scoreDisplayChild").html(0);
                     reset();
                 }
-            }
+            });
 
 
-        start();
-
-        </script>
+         start();
+        });
+       
+    </script>
 
 </body>
 
