@@ -1,55 +1,26 @@
-body {
-    background-image: src("c:\Users\alyss\OneDrive\Desktop\criss-cross\.png");
+
+.header{
+    background-color: orange;
 }
-
-
-#parentGameButtons{
-    margin: 25px auto auto 10px;
-    height: 200px;
-    width: 600px;
+#blue{
+    color: blue;
 }
-
-.box{
+#green{
+    color: green;
+}
+#red{
+    color: red;
+}
+#yellow{
+    color: yellow;
+}
+.gemImage{
     width: 130px;
     height: 100%;
     margin: 0 10px 0 10px;
     float: left;
     overflow: hidden;
-    
-}
-#parentScore {
-    margin: 25px auto auto 10px;
-    width: 330px;
-    height: 250px;
-    position: relative;
-}
-.totalScore{
-    margin: 25px auto auto 10px;
-    width: 100%;
-    height: 25%;
-    background-color: #4aaaa5;
 }
 .instructions{
-    margin: 25px auto auto 10px;
-    width: 600px;
-    height: 500px;
-    background-color: #f9e4cd;
-}
-#parentRanW1Box{
-    margin: 25px 0 0 10px;
-    width: 600px;
-    height: 250px;
-}
-.ranNumBox {
-    width: 55%;
-    height: 100%;
-    float: left;
-    background-color: #5ac77c;
-    font-size: 50px;
-}
-.winLoseBox{
-    width: 40%;
-    height: 100%;
-    float: right;
-    background-color: #4bfdfc;
+    background-color: yellow;
 }
