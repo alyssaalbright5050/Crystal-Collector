@@ -28,3 +28,27 @@
     width: 600px;
     height: 250px;
 }
+.numberToMatch{
+    margin: 25px 0 0 10px;
+    width: 600px;
+    height: 150px;
+}
+#randomNumBox{
+    width: 55%;
+    height: 100%;
+    float: left;
+    background-color: #5ac77c;
+    font-size: 50px;
+}
+.winsAndLosses{
+    width: 40%;
+    height: 100%;
+    float: right;
+    background-color: #4bfdfc;
+}
+.userTotal{
+    width: 330px;
+    background-color: #4aaaa5;
+    float: left;
+}
+
